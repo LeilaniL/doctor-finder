@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Doctor Finder</title>
+</head>
+
+<body>
+  <div class="container" id="main">
+    <!-- <img id="stethoscope" src="" alt="stethoscope"> -->
+    <h1>Doctor Finder</h1>
+    <div class="row">
+      <div class="form">
+        <form class="form-group" id="userForm">
+          <label for="doctorName">Search for doctor by name: </label>
+          <input class="form-control col" id="doctorName" type="text">
+
+          <button type="submit" class="btn btn-primary btn-lg" id="submitButton">Most Popular</button>
+          <button class="btn btn-primary btn-lg" id="randomButton">Random</button>
+      </div>
+      </form>
+    </div>
+
+    <div class="row">
+      <ul id="name" class="col col-md-3"></ul>
+      <div class="container col col-md-8" id="details">
+        <!-- <img class="img" id="picture" src="" alt="thumbnail"> -->
+      </div>
+    </div>
+    <p id="errors"></p>
+
+  </div>
+  </div>
+</body>
+
+</html>
