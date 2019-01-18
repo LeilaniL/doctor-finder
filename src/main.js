@@ -17,7 +17,8 @@ $(document).ready(function () {
     promise.then(function (response) {
       let body = JSON.parse(response);
       for (let i = 0; i < body.data.length; i++) {
-        console.log(body.data.practices.name)
+        console.log(body.data[i].practices[0].name);
+        $("#name").append(`<li>${body.data[i].practices[0].name}</li>`);
       }
     })
   })
