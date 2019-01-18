@@ -17,10 +17,18 @@ $(document).ready(function () {
     promise.then(function (response) {
       let body = JSON.parse(response);
       for (let i = 0; i < body.data.length; i++) {
-        $("#name").append(`<li>${body.data[i].practices[0].name};
+        $("#available").append(`<li>${body.data[i].practices[0].accepts_new_patients}</li>`);
+        $("#name").append(`<li>${body.data[i].practices[0].name}
         </li>`);
         $("#phone").append(`<li>${body.data[i].practices[0].phones[0].number}</li>`);
-        $("#address").append(`<li>${body.data[i].practices[0].phones[0].number}</li>`);
+        $("#address").append(`<li>${body.data[i].practices[0].visit_address.street},
+
+        <span>${body.data[i].practices[0].visit_address.street2},</span>
+
+        <span>${body.data[i].practices[0].visit_address.city},</span>
+
+        <span>${body.data[i].practices[0].visit_address.state}</span>
+        </li>`);
       }
     })
   })
