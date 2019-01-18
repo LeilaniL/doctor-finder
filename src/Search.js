@@ -1,4 +1,4 @@
-import { apiKey } from '../.env';
+// import { apiKey } from '../.env';
 export class Search {
   constructor(drName, condition) {
     this.drName = drName;
@@ -8,10 +8,10 @@ export class Search {
   }
   GetByName() {
     return new Promise((resolve, reject) => {
-      console.log(apiKey);
+      // console.log(apiKey);
       let that = this;
       let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${this.drName}&location=45.5122%2C-122.6587%2C100&user_location=45.5122%2C-122.6587&skip=0&limit=10&user_key=${apiKey}`;
+      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${this.drName}&location=45.5122%2C-122.6587%2C100&user_location=45.5122%2C-122.6587&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
 
       request.onload = function () {
         if (this.status === 200) {
