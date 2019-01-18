@@ -79,12 +79,6 @@ li:first-letter {
   margin-bottom: 20px;
 }
 
-#details {
-display: none;
-padding: 10px;
-background-color:  rgb(193, 212, 252);
-border-radius: 5px;
-}
 #description {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
