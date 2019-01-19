@@ -8,12 +8,20 @@ import './styles.css';
 // stethoscopeIcon.src = stethoscope;
 
 $(document).ready(function () {
+  let specialtiesQuery = new Search("", "");
+  let otherPromise = specialtiesQuery.GetDoctors();
+  otherPromise.then(function (response) {
+    let body = JSON.parse(response);
+    for (let i = 0; i < body.data.length; i++) {
+      $("#available").append(`<li>${body.data[i].profile[0].specialties[0]}</li>`);
+    }
+  })
   $("#submitButton").click(function (event) {
     event.preventDefault();
     let nameQuery = $("#doctorName").val();
     let condition = "";
     let userSearch = new Search(nameQuery, condition);
-    let promise = userSearch.GetByName();
+    let promise = userSearch.GetDoctors();
     promise.then(function (response) {
       let body = JSON.parse(response);
       for (let i = 0; i < body.data.length; i++) {
