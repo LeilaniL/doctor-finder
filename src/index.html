@@ -7,7 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Doctor Finder</title>
 </head>
-<!-- body.data[i].profile[0].specialties[0] -->
 
 <body>
   <div class="container" id="main">
@@ -18,7 +17,8 @@
         <form class="form-group" id="userForm">
           <label for="doctorName">Search for doctor by name: </label>
           <input class="form-control col" id="doctorName" type="text">
-          <button type="button" class="btn btn-warning btn-lg" id="showSpecialties">Select a Specialty</button>
+          <label for="condition">Search for doctor by condition/ailment: </label>
+          <input class="form-control col" id="condition" type="text">
           <button type="submit" class="btn btn-primary btn-lg" id="submitButton">Search</button>
       </div>
       </form>
@@ -39,21 +39,3 @@
 </body>
 
 </html>
-<!-- <div class="form-check">
-    <input type="radio" name="${body.data[i].name}" value="{body.data[i].uid}">
-    <label for="${body.data[i].name}">
-      name="${body.data[i].name}"
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-    <label class="form-check-label" for="exampleRadios2">
-      Second default radio
-    </label>
-  </div>
-  <div class="form-check disabled">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-    <label class="form-check-label" for="exampleRadios3">
-      Disabled radio
-    </label>
-  </div> -->
