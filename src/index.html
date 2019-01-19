@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Doctor Finder</title>
 </head>
+<!-- body.data[i].profile[0].specialties[0] -->
 
 <body>
   <div class="container" id="main">
@@ -17,18 +18,14 @@
         <form class="form-group" id="userForm">
           <label for="doctorName">Search for doctor by name: </label>
           <input class="form-control col" id="doctorName" type="text">
-          <div class="form-check" id="specialties">
-            <input class="form-check-input" type="radio" name="specialty" id="specialty" value="">
-            <label class="form-check-label" for="specialty">
-              Default radio
-            </label>
-          </div>
+          <button type="button" class="btn btn-warning btn-lg" id="showSpecialties">Select a Specialty</button>
           <button type="submit" class="btn btn-primary btn-lg" id="submitButton">Search</button>
       </div>
       </form>
     </div>
     <!-- results show below -->
     <div class="row">
+      <ul id="specialties"></ul>
       <ul id="available" class="col col-md-1"><b>Available</b></ul>
       <ul id="name" class="col col-md-4"><b>Name</b></ul>
       <ul id="phone" class="col col-md-3"><b>Phone</b></ul>

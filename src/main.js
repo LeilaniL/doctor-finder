@@ -8,28 +8,29 @@ import './styles.css';
 // stethoscopeIcon.src = stethoscope;
 
 $(document).ready(function () {
-  let specialtiesQuery = new Search("", "");
-  let otherPromise = specialtiesQuery.GetDoctors();
-  otherPromise.then(function (response) {
-    let body = JSON.parse(response);
-    for (let i = 0; i < body.data.length; i++) {
-      $("#available").append(`<li>${body.data[i].profile[0].specialties[0]}</li>`);
-    }
-  })
-  $("#submitButton").click(function (event) {
+  $("#showSpecialties").click(function (event) {
     event.preventDefault();
-    let nameQuery = $("#doctorName").val();
-    let condition = "";
-    let userSearch = new Search(nameQuery, condition);
-    let promise = userSearch.GetDoctors();
-    promise.then(function (response) {
+    let specialtyPromise = Search.DisplaySpecialties();
+    specialtyPromise.then(function (response) {
       let body = JSON.parse(response);
       for (let i = 0; i < body.data.length; i++) {
-        $("#available").append(`<li>${body.data[i].practices[0].accepts_new_patients}</li>`);
-        $("#name").append(`<li>${body.data[i].practices[0].name}
+        $("#specialties").append(body.data[i].name);
+      }
+    })
+    $("#submitButton").click(function (event) {
+      event.preventDefault();
+      let nameQuery = $("#doctorName").val();
+      let condition = "";
+      let userSearch = new Search(nameQuery, condition);
+      let promise = userSearch.GetDoctors();
+      promise.then(function (response) {
+        let body = JSON.parse(response);
+        for (let i = 0; i < body.data.length; i++) {
+          $("#available").append(`<li>${body.data[i].practices[0].accepts_new_patients}</li>`);
+          $("#name").append(`<li>${body.data[i].practices[0].name}
         </li>`);
-        $("#phone").append(`<li>${body.data[i].practices[0].phones[0].number}</li>`);
-        $("#address").append(`<li>${body.data[i].practices[0].visit_address.street},
+          $("#phone").append(`<li>${body.data[i].practices[0].phones[0].number}</li>`);
+          $("#address").append(`<li>${body.data[i].practices[0].visit_address.street},
 
         <span>${body.data[i].practices[0].visit_address.street2},</span>
 
@@ -37,7 +38,8 @@ $(document).ready(function () {
 
         <span>${body.data[i].practices[0].visit_address.state}</span>
         </li>`);
-      }
+        }
+      })
     })
   })
 })
