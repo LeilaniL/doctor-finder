@@ -30,6 +30,8 @@ $(document).ready(function () {
         <span>${body.data[i].practices[0].visit_address.state}</span>
         </li>`);
       }
+    }).catch((reason) => {
+      $("#errors").append(`<p>Sorry, an error occurred. <br> ${reason}</p>`);
     })
   })
 })
