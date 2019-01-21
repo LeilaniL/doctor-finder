@@ -14,7 +14,8 @@ $(document).ready(function () {
     let conditionQuery = $("#condition").val();
     let userSearch = new Search(nameQuery, conditionQuery);
     let promise = userSearch.GetDoctors();
-
+    $(".earlierResults").empty();
+    $(".results").show();
     promise.then(function (response) {
       let body = JSON.parse(response);
       if (body.data.length == 0) {

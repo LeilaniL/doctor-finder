@@ -12,11 +12,12 @@ h1{
   text-align: center;
   padding:20px;
 }
-#tvicon{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  
+.results{
+  display: none;
+}
+#errors{
+  text-align: center;
+  font-weight: bold;
 }
 .container {
   margin: 20px;
