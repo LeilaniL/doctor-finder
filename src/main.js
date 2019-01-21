@@ -14,14 +14,18 @@ $(document).ready(function () {
     let conditionQuery = $("#condition").val();
     let userSearch = new Search(nameQuery, conditionQuery);
     let promise = userSearch.GetDoctors();
+
     promise.then(function (response) {
       let body = JSON.parse(response);
-      for (let i = 0; i < body.data.length; i++) {
-        $("#available").append(`<li>${body.data[i].practices[0].accepts_new_patients}</li>`);
-        $("#name").append(`<li>${body.data[i].practices[0].name}
+      if (body.data.length == 0) {
+        $("#errors").append(`<p>No results found. Please try another search.</p>`);
+      } else {
+        for (let i = 0; i < body.data.length; i++) {
+          $("#available").append(`<li>${body.data[i].practices[0].accepts_new_patients}</li>`);
+          $("#name").append(`<li>${body.data[i].practices[0].name}
         </li>`);
-        $("#phone").append(`<li>${body.data[i].practices[0].phones[0].number}</li>`);
-        $("#address").append(`<li>${body.data[i].practices[0].visit_address.street},
+          $("#phone").append(`<li>${body.data[i].practices[0].phones[0].number}</li>`);
+          $("#address").append(`<li>${body.data[i].practices[0].visit_address.street},
 
         <span>${body.data[i].practices[0].visit_address.street2},</span>
 
@@ -29,6 +33,7 @@ $(document).ready(function () {
 
         <span>${body.data[i].practices[0].visit_address.state}</span>
         </li>`);
+        }
       }
     }).catch((reason) => {
       $("#errors").append(`<p>Sorry, an error occurred. <br> ${reason}</p>`);
