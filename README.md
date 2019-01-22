@@ -25,7 +25,7 @@ Search for doctors in the Portland, OR region by name or by specialty.
 6. Enter search terms in the browser that pops up
 
 ## Known Bugs
-* No known bugs at this time.
+* Second address line displays "undefined" if the doctor office doesn't have a suite or room listed
 
 ## Technologies Used
 * BetterDoctor API https://developer.betterdoctor.com/
